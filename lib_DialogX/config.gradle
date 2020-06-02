@@ -17,11 +17,11 @@ ext {
     user_name = "lazy"
     psw = "123456"
 
-    groupId = 'com.zndroid'
-    description = "QR code lib"
+    groupId = 'com.zndroidx'
+    description = "commom dialog lib"
     type = "aar"
 
-    artifactId = 'QRCode'
+    artifactId = 'DialogX'
     version = '1.0.0'
 }
 
