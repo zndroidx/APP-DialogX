@@ -17,7 +17,7 @@ ext {
     user_name = "lazy"
     psw = "123456"
 
-    groupId = 'com.zndroidx'
+    groupId = 'com.zndroid'
     description = "commom dialog lib"
     type = "aar"
 
