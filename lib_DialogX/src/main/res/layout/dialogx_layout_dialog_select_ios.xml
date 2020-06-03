@@ -104,7 +104,7 @@
                     android:clickable="true"
                     android:gravity="center"
                     android:text="取消"
-                    android:textColor="@color/dialogButtonIOSNormal"
+                    android:textColor="@color/red"
                     android:textSize="17dp" />
 
                 <ImageView
