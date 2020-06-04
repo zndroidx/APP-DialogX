@@ -2,6 +2,7 @@ package com.zndroid.dialogx;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.Animatable;
 import android.net.Uri;
@@ -153,12 +154,19 @@ public class ADDialog {
 
     private void setRootContainerHeight() {
         context.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        int widthPixels = displayMetrics.widthPixels;
-        int totalPadding = DisplayUtil.dip2px(context, padding * 2);
-        int width = widthPixels - totalPadding;
-        final int height = (int) (width / widthPerHeight);
-        ViewGroup.LayoutParams params = adRootContent.getLayoutParams();
-        params.height = height;
+
+        if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {//竖屏
+            int widthPixels = displayMetrics.widthPixels;
+            int totalPadding = DisplayUtil.dip2px(context, padding * 2);
+            int width = widthPixels - totalPadding;
+            int height = (int) (width / widthPerHeight);
+            ViewGroup.LayoutParams params = adRootContent.getLayoutParams();
+            params.height = height;
+        } else {//横屏 不锁定宽高比
+            int heightPixels = displayMetrics.heightPixels;
+            ViewGroup.LayoutParams params = adRootContent.getLayoutParams();
+            params.height = (int) (heightPixels * 0.75);//和屏幕高度固定比例
+        }
     }
 
     /**
