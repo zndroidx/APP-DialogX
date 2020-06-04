@@ -43,9 +43,7 @@
             android:layout_below="@+id/errorStateContentTextView"
             android:layout_centerHorizontal="true"
             android:text="@string/progressActivityErrorButton"
-            android:visibility="gone"
-            />
-
+            android:visibility="gone" />
 
     </RelativeLayout>
 

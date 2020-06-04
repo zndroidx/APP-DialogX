@@ -7,7 +7,7 @@
     android:background="#f1f3f7">
 
 
-    <com.uuch.adlibrary.view.MetaballView
+    <com.zndroid.dialogx.ad.view.MetaballView
         android:id="@+id/loadingStateProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

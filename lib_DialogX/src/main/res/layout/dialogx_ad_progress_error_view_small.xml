@@ -43,7 +43,6 @@
             android:layout_centerHorizontal="true"
             android:text="@string/progressActivityErrorButton" />
 
-
     </RelativeLayout>
 
 </RelativeLayout>

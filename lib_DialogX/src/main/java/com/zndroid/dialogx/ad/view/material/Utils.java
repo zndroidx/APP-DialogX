@@ -1,18 +1,21 @@
-package com.zndroid.dialogx.ad.util;
+package com.zndroid.dialogx.ad.view.material;
 
 import android.R;
 import android.content.Context;
 import android.util.Log;
 
-import com.zndroid.dialogx.ad.view.material.Iconify;
-import com.zndroid.dialogx.ad.view.material.Iconify.IconValue;
-
-import java.io.*;
+import java.io.BufferedOutputStream;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 import static android.util.TypedValue.COMPLEX_UNIT_DIP;
 import static android.util.TypedValue.applyDimension;
 
-public class Utils {
+class Utils {
+
     public static final String ICON_FONT_FOLDER = "icon_tmp";
     public static final String NAME_PREFIX      = "{zmdi";
 
@@ -20,19 +23,19 @@ public class Utils {
         // Prevents instantiation
     }
 
-    public static int convertDpToPx(Context context, float dp) {
+    static int convertDpToPx(Context context, float dp) {
         return (int) applyDimension(COMPLEX_UNIT_DIP, dp,
-                context.getResources().getDisplayMetrics());
+                                    context.getResources().getDisplayMetrics());
     }
 
-    public static boolean isEnabled(int[] stateSet) {
+    static boolean isEnabled(int[] stateSet) {
         for (int state : stateSet)
             if (state == R.attr.state_enabled)
                 return true;
         return false;
     }
 
-    public static File resourceToFile(Context context, String resourceName) throws IOException {
+    static File resourceToFile(Context context, String resourceName) throws IOException {
         File f = null;
         if (context.getFilesDir() == null)
             f = new File(context.getCacheDir(), ICON_FONT_FOLDER);
@@ -85,7 +88,7 @@ public class Utils {
         iconString = iconString.replaceAll("-", "_");
         try {
 
-            IconValue value = IconValue.valueOf(iconString);
+            Iconify.IconValue value = Iconify.IconValue.valueOf(iconString);
             String iconValue = String.valueOf(value.character);
 
             text = text.replace(startIndex, endIndex, iconValue);
@@ -97,4 +100,3 @@ public class Utils {
         }
     }
 }
-
