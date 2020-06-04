@@ -6,14 +6,77 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="click me"
-        android:onClick="test"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_full"
+                style="@style/txt"
+                android:text="显示全屏对话框时请点击这里"/>
+
+            <Button
+                style="@style/txt"
+                android:onClick="tip_dialog"
+                android:text="提示对话框 - 自动消失"/>
+
+            <Button
+                style="@style/txt"
+                android:onClick="wait_dialog"
+                android:text="等待对话框 - 3秒后自动消失"/>
+
+            <Button
+                style="@style/txt"
+                android:onClick="bottom_dialog"
+                android:text="底部菜单对话框"/>
+
+            <Button
+                style="@style/txt"
+                android:onClick="share_dialog"
+                android:text="分享框"/>
+
+            <Button
+                style="@style/txt"
+                android:onClick="notification_dialog"
+                android:text="通知栏"/>
+
+            <Button
+                style="@style/txt"
+                android:onClick="message_dialog"
+                android:text="消息对话框"/>
+
+            <Button
+                style="@style/txt"
+                android:onClick="input_dialog"
+                android:text="带输入框的对话框"/>
+
+            <Button
+                style="@style/txt"
+                android:onClick="full_dialog"
+                android:text="全屏对话框"/>
+
+            <Button
+                style="@style/txt"
+                android:onClick="custom_dialog"
+                android:text="自定义对话框"/>
+
+            <Button
+                style="@style/txt"
+                android:onClick="ad_dialog"
+                android:text="广告弹框"/>
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

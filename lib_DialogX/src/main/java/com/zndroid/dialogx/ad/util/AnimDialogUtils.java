@@ -11,8 +11,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.zndroid.dialogx.R;
-import com.zndroid.dialogx.ad.AdConstant;
-import com.zndroid.dialogx.ad.anim.AnimSpring;
+import com.zndroid.dialogx.ad.ADConstant;
+import com.zndroid.dialogx.ad.rebound.anim.AnimSpring;
 
 /**
  * 使用弹性动画
@@ -95,7 +95,7 @@ public class AnimDialogUtils {
                     if (onCloseClickListener != null) {
                         onCloseClickListener.onClick(view);
                     }
-                    dismiss(AdConstant.ANIM_STOP_TRANSPARENT);
+                    dismiss(ADConstant.ANIM_STOP_TRANSPARENT);
                 }
             });
         } else {

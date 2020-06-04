@@ -1,11 +1,13 @@
-package com.zndroid.dialogx.ad.view;
+package com.zndroid.dialogx.ad.view.material;
 
 import android.content.Context;
-import android.graphics.*;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.text.TextPaint;
-
-import com.zndroid.dialogx.ad.util.Utils;
 
 import static java.lang.String.valueOf;
 
@@ -195,4 +197,3 @@ public class IconDrawable extends Drawable {
     }
 
 }
-

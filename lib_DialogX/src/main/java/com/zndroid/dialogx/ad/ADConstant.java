@@ -3,7 +3,7 @@ package com.zndroid.dialogx.ad;
 /**
  * 广告、活动弹窗静态变量
  */
-public class AdConstant {
+public class ADConstant {
 
     // ####################### 弹出动画效果 ###########################
     /**
