@@ -1,11 +1,9 @@
-package com.zndroid.dialogx.ad.view;
+package com.zndroid.dialogx.ad.view.material;
 
 import android.content.Context;
 import android.graphics.Typeface;
 import android.text.Spanned;
 import android.widget.TextView;
-
-import com.zndroid.dialogx.ad.util.Utils;
 
 import java.io.File;
 import java.io.IOException;
@@ -936,7 +934,7 @@ public final class Iconify {
         zmdi_my_location('\uf299'),
         zmdi_directions('\uf1e7');
 
-        public char character;
+        char character;
 
         IconValue(char character) {
             this.character = character;
@@ -951,4 +949,3 @@ public final class Iconify {
         }
     }
 }
-

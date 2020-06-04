@@ -1,4 +1,4 @@
-package com.zndroid.dialogx.ad.anim;
+package com.zndroid.dialogx.ad.rebound.anim;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -7,15 +7,14 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.RelativeLayout;
 
 import com.zndroid.dialogx.ad.AdConstant;
+import com.zndroid.dialogx.ad.rebound.SimpleSpringListener;
+import com.zndroid.dialogx.ad.rebound.Spring;
+import com.zndroid.dialogx.ad.rebound.SpringConfig;
+import com.zndroid.dialogx.ad.rebound.SpringSystem;
 import com.zndroid.dialogx.ad.util.AnimDialogUtils;
 import com.zndroid.dialogx.ad.util.DisplayUtil;
-import com.facebook.rebound.SimpleSpringListener;
-import com.facebook.rebound.Spring;
-import com.facebook.rebound.SpringConfig;
-import com.facebook.rebound.SpringSystem;
 
 /**
- * Created by aaron on 16/8/3.
  * 弹性动画操作类
  */
 public class AnimSpring {
