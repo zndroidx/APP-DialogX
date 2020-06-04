@@ -14,8 +14,7 @@
         android:layout_centerInParent="true"
         android:layout_marginLeft="44dp"
         android:layout_marginRight="44dp"
-        android:paddingTop="48dp"
-        >
+        android:paddingTop="48dp">
 
         <FrameLayout
             android:id="@+id/fl_content_container"
