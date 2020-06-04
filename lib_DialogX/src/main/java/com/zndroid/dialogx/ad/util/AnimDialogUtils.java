@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 
 import com.zndroid.dialogx.R;
 import com.zndroid.dialogx.ad.ADConstant;
-import com.zndroid.dialogx.ad.anim.AnimSpring;
+import com.zndroid.dialogx.ad.rebound.anim.AnimSpring;
 
 /**
  * 使用弹性动画

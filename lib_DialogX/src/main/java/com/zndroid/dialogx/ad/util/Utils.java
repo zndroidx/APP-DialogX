@@ -4,6 +4,9 @@ import android.R;
 import android.content.Context;
 import android.util.Log;
 
+import com.zndroid.dialogx.ad.view.material.Iconify;
+import com.zndroid.dialogx.ad.view.material.Iconify.IconValue;
+
 import java.io.*;
 
 import static android.util.TypedValue.COMPLEX_UNIT_DIP;
@@ -82,7 +85,7 @@ public class Utils {
         iconString = iconString.replaceAll("-", "_");
         try {
 
-            Iconify.IconValue value = Iconify.IconValue.valueOf(iconString);
+            IconValue value = IconValue.valueOf(iconString);
             String iconValue = String.valueOf(value.character);
 
             text = text.replace(startIndex, endIndex, iconValue);
