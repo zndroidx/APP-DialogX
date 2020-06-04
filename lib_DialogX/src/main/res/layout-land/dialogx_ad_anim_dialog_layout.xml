@@ -13,27 +13,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginLeft="44dp"
-        android:layout_marginRight="44dp"
-        android:paddingTop="48dp">
+        android:layout_marginLeft="88dp"
+        android:layout_marginRight="88dp">
 
         <FrameLayout
             android:id="@+id/fl_content_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
 
         <ImageView
             android:id="@+id/iv_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/fl_content_container"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/dialogx_ad_bg_rect_share_close"
-            android:layout_marginTop="22dp"
+            android:layout_alignEnd="@id/fl_content_container"
+            android:layout_margin="8dp"
             android:padding="10dp"
-            android:src="@mipmap/dialogx_ad_ic_cancel_popup" />
+            android:background="@drawable/dialogx_ad_bg_rect_share_close"
+            android:src="@mipmap/ic_cancel_popup" />
 
     </RelativeLayout>
-
 
 </RelativeLayout>
