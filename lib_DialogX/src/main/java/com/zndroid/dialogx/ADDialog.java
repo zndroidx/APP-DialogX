@@ -22,7 +22,7 @@ import com.facebook.drawee.controller.ControllerListener;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.image.ImageInfo;
-import com.zndroid.dialogx.ad.AdConstant;
+import com.zndroid.dialogx.ad.ADConstant;
 import com.zndroid.dialogx.ad.util.AnimDialogUtils;
 import com.zndroid.dialogx.ad.util.DisplayUtil;
 import com.zndroid.dialogx.ad.view.FlycoPageIndicaor;
@@ -61,9 +61,9 @@ public class ADDialog {
     // 设置弹窗背景颜色
     private int backViewColor = Color.parseColor("#bf000000");
     // 弹性动画弹性参数
-    private double bounciness = AdConstant.BOUNCINESS;
+    private double bounciness = ADConstant.BOUNCINESS;
     // 弹性动画速度参数
-    private double speed = AdConstant.SPEED;
+    private double speed = ADConstant.SPEED;
     // viewPager滑动动画效果
     private ViewPager.PageTransformer pageTransformer = null;
     // 是否覆盖全屏幕
@@ -144,7 +144,7 @@ public class ADDialog {
      * 开始执行销毁弹窗的操作
      */
     public void dismissAdDialog() {
-        animDialogUtils.dismiss(AdConstant.ANIM_STOP_DEFAULT);
+        animDialogUtils.dismiss(ADConstant.ANIM_STOP_DEFAULT);
     }
 
     public boolean isShowing() {

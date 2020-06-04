@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.RelativeLayout;
 
-import com.zndroid.dialogx.ad.AdConstant;
+import com.zndroid.dialogx.ad.ADConstant;
 import com.zndroid.dialogx.ad.rebound.SimpleSpringListener;
 import com.zndroid.dialogx.ad.rebound.Spring;
 import com.zndroid.dialogx.ad.rebound.SpringConfig;
@@ -44,9 +44,9 @@ public class AnimSpring {
     public void startAnim(final int animType, final RelativeLayout animContainer, double bounciness, double speed) {
         springConfig = SpringConfig.fromBouncinessAndSpeed(bounciness, speed);
         // 常量类型动画效果
-        if (AdConstant.isConstantAnim(animType)) {
+        if (ADConstant.isConstantAnim(animType)) {
             startConstantAnim(animType, animContainer);
-        } else if (AdConstant.isCircleAnim(animType)) {
+        } else if (ADConstant.isCircleAnim(animType)) {
             startCircleAnim(animType, animContainer);
         } else {
             animContainer.setVisibility(View.VISIBLE);
@@ -103,21 +103,21 @@ public class AnimSpring {
      */
     public void startConstantAnim(final int animType, final RelativeLayout animContainer) {
 
-        if (animType == AdConstant.ANIM_DOWN_TO_UP) {
+        if (animType == ADConstant.ANIM_DOWN_TO_UP) {
             startCircleAnim(270, animContainer);
-        } else if (animType == AdConstant.ANIM_UP_TO_DOWN){
+        } else if (animType == ADConstant.ANIM_UP_TO_DOWN){
             startCircleAnim(90, animContainer);
-        } else if (animType == AdConstant.ANIM_LEFT_TO_RIGHT) {
+        } else if (animType == ADConstant.ANIM_LEFT_TO_RIGHT) {
             startCircleAnim(180, animContainer);
-        } else if (animType == AdConstant.ANIM_RIGHT_TO_LEFT) {
+        } else if (animType == ADConstant.ANIM_RIGHT_TO_LEFT) {
             startCircleAnim(0, animContainer);
-        } else if (animType == AdConstant.ANIM_UPLEFT_TO_CENTER) {
+        } else if (animType == ADConstant.ANIM_UPLEFT_TO_CENTER) {
             startCircleAnim(135, animContainer);
-        } else if (animType == AdConstant.ANIM_UPRIGHT_TO_CENTER) {
+        } else if (animType == ADConstant.ANIM_UPRIGHT_TO_CENTER) {
             startCircleAnim(45, animContainer);
-        } else if (animType == AdConstant.ANIM_DOWNLEFT_TO_CENTER) {
+        } else if (animType == ADConstant.ANIM_DOWNLEFT_TO_CENTER) {
             startCircleAnim(225, animContainer);
-        } else if (animType == AdConstant.ANIM_DOWNRIGHT_TO_CENTER) {
+        } else if (animType == ADConstant.ANIM_DOWNRIGHT_TO_CENTER) {
             startCircleAnim(315, animContainer);
         }
     }
@@ -134,7 +134,7 @@ public class AnimSpring {
             return;
         }
 
-        if (animType == AdConstant.ANIM_STOP_TRANSPARENT) {
+        if (animType == ADConstant.ANIM_STOP_TRANSPARENT) {
             animDialogUtils.getAnimContainer().animate().alpha(0).setListener(new AnimatorListenerAdapter() {
                 @Override
                 public void onAnimationEnd(Animator animation) {

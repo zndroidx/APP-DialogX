@@ -17,7 +17,7 @@ import com.zndroid.dialogx.NotificationDialog;
 import com.zndroid.dialogx.ShareDialog;
 import com.zndroid.dialogx.TipDialog;
 import com.zndroid.dialogx.WaitDialog;
-import com.zndroid.dialogx.ad.AdConstant;
+import com.zndroid.dialogx.ad.ADConstant;
 import com.zndroid.dialogx.core.BaseDialog;
 import com.zndroid.dialogx.core.DialogSettings;
 import com.zndroid.dialogx.interfaces.OnDialogButtonClickListener;
@@ -230,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
 
         adManagerDialog = new ADDialog(this, list);
         adManagerDialog.setAnimBackViewTransparent(true);
-        adManagerDialog.showAdDialog(AdConstant.ANIM_DOWN_TO_UP);
+        adManagerDialog.showAdDialog(ADConstant.ANIM_DOWN_TO_UP);
         adManagerDialog.setOnImageClickListener(new ADDialog.OnImageClickListener() {
             @Override
             public void onImageClick(View view, AdInfo advInfo) {
