@@ -50,4 +50,16 @@
         <!-- indicator unselect drawable resource -->
         <attr name="fpi_unselectRes" format="reference"/>
     </declare-styleable>
+
+    <!-- material icon -->
+    <attr name="hacky_preview" format="boolean"/>
+
+    <declare-styleable name="IconTextView">
+        <attr name="hacky_preview"/>
+    </declare-styleable>
+
+    <declare-styleable name="IconButton">
+        <attr name="hacky_preview"/>
+    </declare-styleable>
+    <!-- material icon end-->
 </resources>
