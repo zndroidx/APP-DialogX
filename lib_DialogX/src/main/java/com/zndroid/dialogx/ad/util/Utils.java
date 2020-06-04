@@ -4,6 +4,8 @@ import android.R;
 import android.content.Context;
 import android.util.Log;
 
+import com.zndroid.dialogx.ad.view.material.Iconify;
+
 import java.io.*;
 
 import static android.util.TypedValue.COMPLEX_UNIT_DIP;

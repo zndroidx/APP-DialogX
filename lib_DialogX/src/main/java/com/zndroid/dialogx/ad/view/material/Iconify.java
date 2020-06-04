@@ -934,7 +934,7 @@ public final class Iconify {
         zmdi_my_location('\uf299'),
         zmdi_directions('\uf1e7');
 
-        char character;
+        public char character;
 
         IconValue(char character) {
             this.character = character;

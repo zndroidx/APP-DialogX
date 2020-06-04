@@ -19,6 +19,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zndroid.dialogx.R;
+import com.zndroid.dialogx.ad.view.material.IconDrawable;
+import com.zndroid.dialogx.ad.view.material.Iconify;
 
 /**
  * 显示加载中、无数据、无网络时的公用界面
