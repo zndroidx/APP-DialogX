@@ -229,14 +229,16 @@ public class MainActivity extends AppCompatActivity {
         list.add(info2);
 
         adManagerDialog = new ADDialog(this, list);
-        adManagerDialog.setAnimBackViewTransparent(true);
-        adManagerDialog.showAdDialog(ADConstant.ANIM_DOWN_TO_UP);
-        adManagerDialog.setOnImageClickListener(new ADDialog.OnImageClickListener() {
-            @Override
-            public void onImageClick(View view, AdInfo advInfo) {
-                toast(advInfo.getTitle() + "被点击");
-            }
-        });
+        adManagerDialog
+                .setAnimBackViewTransparent(true)
+                .setCornersRadius(20f)
+                .setOnImageClickListener(new ADDialog.OnImageClickListener() {
+                    @Override
+                    public void onImageClick(View view, AdInfo advInfo) {
+                        toast(advInfo.getTitle() + "被点击");
+                    }
+                })
+                .showAdDialog(ADConstant.ANIM_DOWN_TO_UP);
 
         view.postDelayed(new Runnable() {
             @Override

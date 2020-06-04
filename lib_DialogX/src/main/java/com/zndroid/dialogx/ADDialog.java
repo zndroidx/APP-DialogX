@@ -19,6 +19,9 @@ import androidx.viewpager.widget.ViewPager;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.BaseControllerListener;
 import com.facebook.drawee.controller.ControllerListener;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
+import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.image.ImageInfo;
@@ -68,9 +71,10 @@ public class ADDialog {
     private ViewPager.PageTransformer pageTransformer = null;
     // 是否覆盖全屏幕
     private boolean isOverScreen = true;
+    // 圆角度数
+    private float cornersRadius = 0;
 
     private OnImageClickListener onImageClickListener = null;
-
 
     public ADDialog(Activity context, List<AdInfo> advInfoListList) {
         this.context = context;
@@ -147,11 +151,6 @@ public class ADDialog {
         animDialogUtils.dismiss(ADConstant.ANIM_STOP_DEFAULT);
     }
 
-    public boolean isShowing() {
-        if (null == animDialogUtils) return false;
-        return animDialogUtils.isShowing();
-    }
-
     private void setRootContainerHeight() {
         context.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int widthPixels = displayMetrics.widthPixels;
@@ -201,8 +200,16 @@ public class ADDialog {
             ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             container.addView(rootView, params);
             simpleDraweeView.setTag(advInfo);
-            simpleDraweeView.setOnClickListener(imageOnClickListener);
 
+            //设置圆角
+            RoundingParams roundingParams = new RoundingParams();
+            roundingParams.setCornersRadius(cornersRadius);//这里是设置你希望的圆角的值
+            GenericDraweeHierarchyBuilder builder = new GenericDraweeHierarchyBuilder(context.getResources());
+            GenericDraweeHierarchy hierarchy = builder.build();
+            hierarchy.setRoundingParams(roundingParams);
+
+            simpleDraweeView.setHierarchy(hierarchy);//一定要先设置Hierarchy，再去加载图片，否则会加载不出来图片
+            simpleDraweeView.setOnClickListener(imageOnClickListener);
 
             ControllerListener controllerListener = new BaseControllerListener<ImageInfo>() {
                 @Override
@@ -265,7 +272,6 @@ public class ADDialog {
      */
     public ADDialog setPadding(int padding) {
         this.padding = padding;
-
         return this;
     }
 
@@ -276,7 +282,6 @@ public class ADDialog {
      */
     public ADDialog setWidthPerHeight(float widthPerHeight) {
         this.widthPerHeight = widthPerHeight;
-
         return this;
     }
 
@@ -287,7 +292,6 @@ public class ADDialog {
      */
     public ADDialog setOnImageClickListener(OnImageClickListener onImageClickListener) {
         this.onImageClickListener = onImageClickListener;
-
         return this;
     }
 
@@ -298,7 +302,6 @@ public class ADDialog {
      */
     public ADDialog setAnimBackViewTransparent(boolean animBackViewTransparent) {
         isAnimBackViewTransparent = animBackViewTransparent;
-
         return this;
     }
 
@@ -309,7 +312,6 @@ public class ADDialog {
      */
     public ADDialog setDialogCloseable(boolean dialogCloseable) {
         isDialogCloseable = dialogCloseable;
-
         return this;
     }
 
@@ -320,7 +322,6 @@ public class ADDialog {
      */
     public ADDialog setOnCloseClickListener(View.OnClickListener onCloseClickListener) {
         this.onCloseClickListener = onCloseClickListener;
-
         return this;
     }
 
@@ -331,7 +332,6 @@ public class ADDialog {
      */
     public ADDialog setBackViewColor(int backViewColor) {
         this.backViewColor = backViewColor;
-
         return this;
     }
 
@@ -342,7 +342,6 @@ public class ADDialog {
      */
     public ADDialog setBounciness(double bounciness) {
         this.bounciness = bounciness;
-
         return this;
     }
 
@@ -353,7 +352,6 @@ public class ADDialog {
      */
     public ADDialog setSpeed(double speed) {
         this.speed = speed;
-
         return this;
     }
 
@@ -363,7 +361,6 @@ public class ADDialog {
      */
     public ADDialog setPageTransformer(ViewPager.PageTransformer pageTransformer) {
         this.pageTransformer = pageTransformer;
-
         return this;
     }
 
@@ -374,7 +371,23 @@ public class ADDialog {
      */
     public ADDialog setOverScreen(boolean overScreen) {
         isOverScreen = overScreen;
-
         return this;
+    }
+
+    /**
+     * 设置广告弹框背景圆角
+     * @param cornersRadius float
+     * */
+    public ADDialog setCornersRadius(float cornersRadius) {
+        this.cornersRadius = cornersRadius;
+        return this;
+    }
+
+    /**
+     * 判断广告框是否显示
+     * */
+    public boolean isShowing() {
+        if (animDialogUtils == null) return false;
+        return animDialogUtils.isShowing();
     }
 }
