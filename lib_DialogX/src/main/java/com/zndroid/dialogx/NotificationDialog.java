@@ -20,7 +20,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.zndroid.dialogx.R;
 import com.zndroid.dialogx.core.DialogSettings;
 import com.zndroid.dialogx.core.SafelyHandlerWrapper;
 import com.zndroid.dialogx.model.TextInfo;
@@ -32,7 +31,7 @@ import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-public class Notification {
+public class NotificationDialog {
     
     public enum DURATION_TIME {
         SHORT, LONG
@@ -65,169 +64,169 @@ public class Notification {
     private TextInfo titleTextInfo;
     private TextInfo messageTextInfo;
     
-    private Notification() {
+    private NotificationDialog() {
     }
     
-    public static Notification build(Context context, String message) {
-        synchronized (Notification.class) {
-            Notification notification = new Notification();
-            notification.log("装载消息通知: " + notification.toString());
-            notification.context = new WeakReference<>(context);
-            notification.message = message;
-            return notification;
+    public static NotificationDialog build(Context context, String message) {
+        synchronized (NotificationDialog.class) {
+            NotificationDialog notificationDialog = new NotificationDialog();
+            notificationDialog.log("装载消息通知: " + notificationDialog.toString());
+            notificationDialog.context = new WeakReference<>(context);
+            notificationDialog.message = message;
+            return notificationDialog;
         }
     }
     
-    public static Notification build(Context context, int messageResId) {
-        synchronized (Notification.class) {
-            Notification notification = new Notification();
-            notification.context = new WeakReference<>(context);
-            notification.message = context.getString(messageResId);
-            return notification;
+    public static NotificationDialog build(Context context, int messageResId) {
+        synchronized (NotificationDialog.class) {
+            NotificationDialog notificationDialog = new NotificationDialog();
+            notificationDialog.context = new WeakReference<>(context);
+            notificationDialog.message = context.getString(messageResId);
+            return notificationDialog;
         }
     }
     
-    public static Notification show(Context context, String message) {
-        Notification notification = build(context, message);
-        notification.showNotification();
-        return notification;
+    public static NotificationDialog show(Context context, String message) {
+        NotificationDialog notificationDialog = build(context, message);
+        notificationDialog.showNotification();
+        return notificationDialog;
     }
     
-    public static Notification show(Context context, int messageResId) {
+    public static NotificationDialog show(Context context, int messageResId) {
         return show(context, context.getString(messageResId));
     }
     
-    public static Notification show(Context context, String message, DURATION_TIME durationTime) {
-        Notification notification = build(context, message);
-        notification.durationTime = durationTime;
-        notification.showNotification();
-        return notification;
+    public static NotificationDialog show(Context context, String message, DURATION_TIME durationTime) {
+        NotificationDialog notificationDialog = build(context, message);
+        notificationDialog.durationTime = durationTime;
+        notificationDialog.showNotification();
+        return notificationDialog;
     }
     
-    public static Notification show(Context context, int messageResId, DURATION_TIME durationTime) {
+    public static NotificationDialog show(Context context, int messageResId, DURATION_TIME durationTime) {
         return show(context, context.getString(messageResId), durationTime);
     }
     
-    public static Notification show(Context context, String message, DialogSettings.STYLE style) {
-        Notification notification = build(context, message);
-        notification.style = style;
-        notification.showNotification();
-        return notification;
+    public static NotificationDialog show(Context context, String message, DialogSettings.STYLE style) {
+        NotificationDialog notificationDialog = build(context, message);
+        notificationDialog.style = style;
+        notificationDialog.showNotification();
+        return notificationDialog;
     }
     
-    public static Notification show(Context context, int messageResId, DialogSettings.STYLE style) {
+    public static NotificationDialog show(Context context, int messageResId, DialogSettings.STYLE style) {
         return show(context, context.getString(messageResId), style);
     }
     
-    public static Notification show(Context context, String message, DialogSettings.STYLE style, DURATION_TIME durationTime) {
-        Notification notification = build(context, message);
-        notification.durationTime = durationTime;
-        notification.style = style;
-        notification.showNotification();
-        return notification;
+    public static NotificationDialog show(Context context, String message, DialogSettings.STYLE style, DURATION_TIME durationTime) {
+        NotificationDialog notificationDialog = build(context, message);
+        notificationDialog.durationTime = durationTime;
+        notificationDialog.style = style;
+        notificationDialog.showNotification();
+        return notificationDialog;
     }
     
-    public static Notification show(Context context, int messageResId, DialogSettings.STYLE style, DURATION_TIME durationTime) {
+    public static NotificationDialog show(Context context, int messageResId, DialogSettings.STYLE style, DURATION_TIME durationTime) {
         return show(context, context.getString(messageResId), style, durationTime);
     }
     
-    public static Notification show(Context context, String title, String message) {
-        Notification notification = build(context, message);
-        notification.title = title;
-        notification.showNotification();
-        return notification;
+    public static NotificationDialog show(Context context, String title, String message) {
+        NotificationDialog notificationDialog = build(context, message);
+        notificationDialog.title = title;
+        notificationDialog.showNotification();
+        return notificationDialog;
     }
     
-    public static Notification show(Context context, int titleResId, int messageResId) {
+    public static NotificationDialog show(Context context, int titleResId, int messageResId) {
         return show(context, context.getString(titleResId), context.getString(messageResId));
     }
     
-    public static Notification show(Context context, String title, String message, DURATION_TIME durationTime) {
-        Notification notification = build(context, message);
-        notification.title = title;
-        notification.durationTime = durationTime;
-        notification.showNotification();
-        return notification;
+    public static NotificationDialog show(Context context, String title, String message, DURATION_TIME durationTime) {
+        NotificationDialog notificationDialog = build(context, message);
+        notificationDialog.title = title;
+        notificationDialog.durationTime = durationTime;
+        notificationDialog.showNotification();
+        return notificationDialog;
     }
     
-    public static Notification show(Context context, int titleResId, int messageResId, DURATION_TIME durationTime) {
+    public static NotificationDialog show(Context context, int titleResId, int messageResId, DURATION_TIME durationTime) {
         return show(context, context.getString(titleResId), context.getString(messageResId), durationTime);
     }
     
-    public static Notification show(Context context, String title, String message, DialogSettings.STYLE style) {
-        Notification notification = build(context, message);
-        notification.title = title;
-        notification.style = style;
-        notification.showNotification();
-        return notification;
+    public static NotificationDialog show(Context context, String title, String message, DialogSettings.STYLE style) {
+        NotificationDialog notificationDialog = build(context, message);
+        notificationDialog.title = title;
+        notificationDialog.style = style;
+        notificationDialog.showNotification();
+        return notificationDialog;
     }
     
-    public static Notification show(Context context, int titleResId, int messageResId, DialogSettings.STYLE style) {
+    public static NotificationDialog show(Context context, int titleResId, int messageResId, DialogSettings.STYLE style) {
         return show(context, context.getString(titleResId), context.getString(messageResId), style);
     }
     
-    public static Notification show(Context context, String title, String message, DialogSettings.STYLE style, DURATION_TIME durationTime) {
-        Notification notification = build(context, message);
-        notification.title = title;
-        notification.durationTime = durationTime;
-        notification.style = style;
-        notification.showNotification();
-        return notification;
+    public static NotificationDialog show(Context context, String title, String message, DialogSettings.STYLE style, DURATION_TIME durationTime) {
+        NotificationDialog notificationDialog = build(context, message);
+        notificationDialog.title = title;
+        notificationDialog.durationTime = durationTime;
+        notificationDialog.style = style;
+        notificationDialog.showNotification();
+        return notificationDialog;
     }
     
-    public static Notification show(Context context, int titleResId, int messageResId, DialogSettings.STYLE style, DURATION_TIME durationTime) {
+    public static NotificationDialog show(Context context, int titleResId, int messageResId, DialogSettings.STYLE style, DURATION_TIME durationTime) {
         return show(context, context.getString(titleResId), context.getString(messageResId), style, durationTime);
     }
     
-    public static Notification show(Context context, String title, String message, int iconResId) {
-        Notification notification = build(context, message);
-        notification.title = title;
-        notification.iconResId = iconResId;
-        notification.showNotification();
-        return notification;
+    public static NotificationDialog show(Context context, String title, String message, int iconResId) {
+        NotificationDialog notificationDialog = build(context, message);
+        notificationDialog.title = title;
+        notificationDialog.iconResId = iconResId;
+        notificationDialog.showNotification();
+        return notificationDialog;
     }
     
-    public static Notification show(Context context, int titleResId, int messageResId, int iconResId) {
+    public static NotificationDialog show(Context context, int titleResId, int messageResId, int iconResId) {
         return show(context, context.getString(titleResId), context.getString(messageResId), iconResId);
     }
     
-    public static Notification show(Context context, String title, String message, int iconResId, DURATION_TIME durationTime) {
-        Notification notification = build(context, message);
-        notification.title = title;
-        notification.iconResId = iconResId;
-        notification.durationTime = durationTime;
-        notification.showNotification();
-        return notification;
+    public static NotificationDialog show(Context context, String title, String message, int iconResId, DURATION_TIME durationTime) {
+        NotificationDialog notificationDialog = build(context, message);
+        notificationDialog.title = title;
+        notificationDialog.iconResId = iconResId;
+        notificationDialog.durationTime = durationTime;
+        notificationDialog.showNotification();
+        return notificationDialog;
     }
     
-    public static Notification show(Context context, int titleResId, int messageResId, int iconResId, DURATION_TIME durationTime) {
+    public static NotificationDialog show(Context context, int titleResId, int messageResId, int iconResId, DURATION_TIME durationTime) {
         return show(context, context.getString(titleResId), context.getString(messageResId), iconResId, durationTime);
     }
     
-    public static Notification show(Context context, String title, String message, int iconResId, DialogSettings.STYLE style) {
-        Notification notification = build(context, message);
-        notification.title = title;
-        notification.iconResId = iconResId;
-        notification.style = style;
-        notification.showNotification();
-        return notification;
+    public static NotificationDialog show(Context context, String title, String message, int iconResId, DialogSettings.STYLE style) {
+        NotificationDialog notificationDialog = build(context, message);
+        notificationDialog.title = title;
+        notificationDialog.iconResId = iconResId;
+        notificationDialog.style = style;
+        notificationDialog.showNotification();
+        return notificationDialog;
     }
     
-    public static Notification show(Context context, int titleResId, int messageResId, int iconResId, DialogSettings.STYLE style) {
+    public static NotificationDialog show(Context context, int titleResId, int messageResId, int iconResId, DialogSettings.STYLE style) {
         return show(context, context.getString(titleResId), context.getString(messageResId), iconResId, style);
     }
     
-    public static Notification show(Context context, String title, String message, int iconResId, DialogSettings.STYLE style, DURATION_TIME durationTime) {
-        Notification notification = build(context, message);
-        notification.title = title;
-        notification.iconResId = iconResId;
-        notification.durationTime = durationTime;
-        notification.style = style;
-        notification.showNotification();
-        return notification;
+    public static NotificationDialog show(Context context, String title, String message, int iconResId, DialogSettings.STYLE style, DURATION_TIME durationTime) {
+        NotificationDialog notificationDialog = build(context, message);
+        notificationDialog.title = title;
+        notificationDialog.iconResId = iconResId;
+        notificationDialog.durationTime = durationTime;
+        notificationDialog.style = style;
+        notificationDialog.showNotification();
+        return notificationDialog;
     }
     
-    public static Notification show(Context context, int titleResId, int messageResId, int iconResId, DialogSettings.STYLE style, DURATION_TIME durationTime) {
+    public static NotificationDialog show(Context context, int titleResId, int messageResId, int iconResId, DialogSettings.STYLE style, DURATION_TIME durationTime) {
         return show(context, context.getString(titleResId), context.getString(messageResId), iconResId, style, durationTime);
     }
     
@@ -692,7 +691,7 @@ public class Notification {
         return onNotificationClickListener;
     }
     
-    public Notification setOnNotificationClickListener(OnNotificationClickListener onNotificationClickListener) {
+    public NotificationDialog setOnNotificationClickListener(OnNotificationClickListener onNotificationClickListener) {
         this.onNotificationClickListener = onNotificationClickListener;
         return this;
     }
@@ -701,7 +700,7 @@ public class Notification {
         return style;
     }
     
-    public Notification setStyle(DialogSettings.STYLE style) {
+    public NotificationDialog setStyle(DialogSettings.STYLE style) {
         this.style = style;
         if (isShow) {
             error("必须使用 build(...) 方法创建时，才可以使用 setStyle(...) 来修改通知主题或风格。");
@@ -713,7 +712,7 @@ public class Notification {
         return durationTime;
     }
     
-    public Notification setDurationTime(DURATION_TIME durationTime) {
+    public NotificationDialog setDurationTime(DURATION_TIME durationTime) {
         this.durationTime = durationTime;
         if (isShow) {
             error("必须使用 build(...) 方法创建时，才可以使用 setDurationTime(...) 来修改通知持续时间。");
@@ -725,7 +724,7 @@ public class Notification {
         return backgroundColor;
     }
     
-    public Notification setBackgroundColor(int backgroundColor) {
+    public NotificationDialog setBackgroundColor(int backgroundColor) {
         this.backgroundColor = backgroundColor;
         refreshView();
         return this;
@@ -735,13 +734,13 @@ public class Notification {
         return title;
     }
     
-    public Notification setTitle(String title) {
+    public NotificationDialog setTitle(String title) {
         this.title = title;
         refreshView();
         return this;
     }
     
-    public Notification setTitle(int titleResId) {
+    public NotificationDialog setTitle(int titleResId) {
         this.title = context.get().getString(titleResId);
         refreshView();
         return this;
@@ -751,13 +750,13 @@ public class Notification {
         return message;
     }
     
-    public Notification setMessage(String message) {
+    public NotificationDialog setMessage(String message) {
         this.message = message;
         refreshView();
         return this;
     }
     
-    public Notification setMessage(int messageResId) {
+    public NotificationDialog setMessage(int messageResId) {
         this.message = context.get().getString(messageResId);
         refreshView();
         return this;
@@ -767,7 +766,7 @@ public class Notification {
         return iconResId;
     }
     
-    public Notification setIconResId(int iconResId) {
+    public NotificationDialog setIconResId(int iconResId) {
         this.iconResId = iconResId;
         refreshView();
         return this;
@@ -777,7 +776,7 @@ public class Notification {
         return titleTextInfo;
     }
     
-    public Notification setTitleTextInfo(TextInfo titleTextInfo) {
+    public NotificationDialog setTitleTextInfo(TextInfo titleTextInfo) {
         this.titleTextInfo = titleTextInfo;
         refreshView();
         return this;
@@ -787,7 +786,7 @@ public class Notification {
         return messageTextInfo;
     }
     
-    public Notification setMessageTextInfo(TextInfo messageTextInfo) {
+    public NotificationDialog setMessageTextInfo(TextInfo messageTextInfo) {
         this.messageTextInfo = messageTextInfo;
         refreshView();
         return this;
@@ -797,7 +796,7 @@ public class Notification {
         return onDismissListener;
     }
     
-    public Notification setOnDismissListener(OnDismissListener onDismissListener) {
+    public NotificationDialog setOnDismissListener(OnDismissListener onDismissListener) {
         this.onDismissListener = onDismissListener;
         return this;
     }
@@ -806,7 +805,7 @@ public class Notification {
         return customView;
     }
     
-    public Notification setCustomView(View customView) {
+    public NotificationDialog setCustomView(View customView) {
         this.customView = customView;
         refreshView();
         return this;
@@ -814,7 +813,7 @@ public class Notification {
     
     private OnBindView onBindView;
     
-    public Notification setCustomView(int customViewLayoutId, OnBindView onBindView) {
+    public NotificationDialog setCustomView(int customViewLayoutId, OnBindView onBindView) {
         customView = LayoutInflater.from(context.get()).inflate(customViewLayoutId, null);
         this.onBindView = onBindView;
         refreshView();
@@ -826,7 +825,7 @@ public class Notification {
     }
     
     public interface OnBindView {
-        void onBind(Notification notification, View v);
+        void onBind(NotificationDialog notificationDialog, View v);
     }
     
     public String toString() {
