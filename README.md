@@ -8,9 +8,9 @@
 allprojects {
     repositories {
         ...
-        maven { url 'http://172.17.230.145:8081/artifactory/libs-release/' }
+        maven { url '暂无' }
         //或者
-        maven { url 'http://172.17.230.145:8081/artifactory/libs-release-local/' }
+        maven { url '暂无' }
         ...  
     }
 }
@@ -19,9 +19,12 @@ allprojects {
 在应用Module `app` 根目录 `build.gradle` 添加如下配置
 
 ```sh
-implementation 'com.arcvideo.component:dialogX:1.0.3'//（建议指定版本）
+implementation 'com.zndroid:DialogX:1.0.3'//（建议指定版本）
 //或者
-implementation 'com.arcvideo.component:dialogX:latest.release'//保持最新版
+implementation 'com.zndroid:DialogX:latest.release'//保持最新版
+
+//androidx 版本
+implementation 'com.zndroidx:DialogX:1.0.3'
 ```
 
 然后点击同步按钮进行代码同步
