@@ -8,9 +8,9 @@
 allprojects {
     repositories {
         ...
-        maven { url '暂无' }
+        maven { url 'http://172.17.230.145:8081/artifactory/libs-release/' }
         //或者
-        maven { url '暂无' }
+        maven { url 'http://172.17.230.145:8081/artifactory/libs-release-local/' }
         ...  
     }
 }
@@ -19,17 +19,14 @@ allprojects {
 在应用Module `app` 根目录 `build.gradle` 添加如下配置
 
 ```sh
-implementation 'com.zndroid:DialogX:1.0.3'//（建议指定版本）
+implementation 'com.arcvideo.component:dialogX:1.0.3'//（建议指定版本）
 //或者
-implementation 'com.zndroid:DialogX:latest.release'//保持最新版
-
-//androidx版本
-implementation 'com.zndroidx:DialogX:xxx'
+implementation 'com.arcvideo.component:dialogX:latest.release'//保持最新版
 ```
 
 然后点击同步按钮进行代码同步
 
-![同步代码](.\doc\imgs\image-20200604170920064.png)
+<img src=".\doc\imgs\image-20200604170920064.png" alt="image-20200604170920064" style="zoom:50%;" />
 
 ## 使用
 
@@ -226,7 +223,7 @@ NotificationDialog.show(this,
 
 效果图：
 
-<img src="E:\workspace\APP-DialogX\doc\imgs\image-20200604180907472.png" alt="image-20200604180907472" style="zoom:50%;" />
+<img src=".\doc\imgs\image-20200604180907472.png" alt="image-20200604180907472" style="zoom:50%;" />
 
 ### 带输入的对话框
 
@@ -250,7 +247,7 @@ InputDialog.show(this, "备注", "请输入描述", "确定", "取消")
 
 效果图：
 
-<img src="E:\workspace\APP-DialogX\doc\imgs\image-20200604181135369.png" alt="image-20200604181135369" style="zoom:50%;" />
+<img src=".\doc\imgs\image-20200604181135369.png" alt="image-20200604181135369" style="zoom:50%;" />
 
 ### 全屏对话框
 
@@ -281,7 +278,7 @@ public void full_dialog(View view) {
 
 效果图：
 
-<img src="E:\workspace\APP-DialogX\doc\imgs\image-20200604181621838.png" alt="image-20200604181722136" style="zoom:67%;" />
+<img src=".\doc\imgs\image-20200604181621838.png" alt="image-20200604181722136" style="zoom:67%;" />
 
 ### 自定义对话框
 
@@ -358,9 +355,9 @@ public void onBackPressed() {//用于处理物理返回键，如果广告弹框�
 
 效果图：
 
-![image-20200604183150960](.\doc\imgs\image-20200604183150960.png)
+<img src=".\doc\imgs\image-20200604183150960.png" alt="image-20200604183150960" style="zoom:50%;" />
 
-![image-20200604183253819](E:\workspace\APP-DialogX\doc\imgs\image-20200604183253819.png)
+<img src=".\doc\imgs\image-20200604183253819.png" alt="image-20200604183253819" style="zoom:50%;" />
 
 ## Q&A
 
