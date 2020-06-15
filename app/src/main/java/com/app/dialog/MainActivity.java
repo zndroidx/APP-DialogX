@@ -2,6 +2,7 @@ package com.app.dialog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -179,6 +180,10 @@ public class MainActivity extends AppCompatActivity {
                         return false;
                     }
                 }).setHintText("不超过20个字，仅测试使用，无意义");
+    }
+
+    public void test(View view) {
+        startActivity(new Intent(this, Main2Activity.class));
     }
 
 
