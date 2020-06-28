@@ -1,14 +1,21 @@
 package com.app.dialog;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zndroid.dialogx.ADDialog;
+import com.zndroid.dialogx.BottomBehaviorDialog;
 import com.zndroid.dialogx.BottomMenuDialog;
 import com.zndroid.dialogx.CustomDialog;
 import com.zndroid.dialogx.FullScreenDialog;
@@ -182,10 +189,81 @@ public class MainActivity extends AppCompatActivity {
                 }).setHintText("不超过20个字，仅测试使用，无意义");
     }
 
-    public void test(View view) {
-        startActivity(new Intent(this, Main2Activity.class));
+    class VH extends RecyclerView.ViewHolder {
+
+        TextView textView;
+        public VH(@NonNull View itemView) {
+            super(itemView);
+
+            textView = itemView.findViewById(android.R.id.text1);
+        }
     }
 
+    class MyAdapter extends RecyclerView.Adapter<VH> {
+        private List<String> list;
+
+        public MyAdapter(List<String> list) {
+            this.list = list;
+        }
+
+        @NonNull
+        @Override
+        public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new VH(LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_1, null));
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull VH holder, int position) {
+            holder.textView.setText(list.get(position));
+        }
+
+        @Override
+        public int getItemCount() {
+            return list.size();
+        }
+    }
+
+    public void behavior_dialog(View view) {
+        View view1 = LayoutInflater.from(this).inflate(R.layout.layout_bottom_sheet, null);
+        RecyclerView recyclerView = view1.findViewById(R.id.rv);
+
+        List<String> list = new CopyOnWriteArrayList<>();
+
+        int num = 19;
+        for(int i =0; i<num;i++)
+            list.add(String.valueOf(i));
+
+
+        MyAdapter myAdapter = new MyAdapter(list);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(myAdapter);
+
+
+//        BottomBehaviorDialog.show(this, view1, new OnBottomSheetCallback() {
+//            @Override
+//            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+//                Log.i("hyhy", "1232131");
+//            }
+//
+//            @Override
+//            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+//                Log.i("hyhy", "33333333");
+//
+//            }
+//        });
+
+        BottomBehaviorDialog bottomBehaviorDialog = BottomBehaviorDialog.build(this)
+                .setContentView(view1)
+                .setPeekHeight(BottomBehaviorDialog.PEEK.QUARTERS);
+
+        bottomBehaviorDialog.show();
+    }
+
+    public void test(View view) {
+
+    }
 
     private class FullDialogView implements FullScreenDialog.OnBindView {
 
