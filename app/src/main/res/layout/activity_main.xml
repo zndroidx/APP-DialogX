@@ -76,6 +76,16 @@
                 android:onClick="ad_dialog"
                 android:text="广告弹框"/>
 
+            <Button
+                style="@style/txt"
+                android:onClick="behavior_dialog"
+                android:text="手势滑动框"/>
+
+            <Button
+                style="@style/txt"
+                android:onClick="test"
+                android:text="test"/>
+
         </LinearLayout>
     </ScrollView>
 

@@ -31,7 +31,7 @@
             android:layout_margin="8dp"
             android:padding="10dp"
             android:background="@drawable/dialogx_ad_bg_rect_share_close"
-            android:src="@mipmap/ic_cancel_popup" />
+            android:src="@mipmap/dialogx_ad_ic_cancel_popup" />
 
     </RelativeLayout>
 

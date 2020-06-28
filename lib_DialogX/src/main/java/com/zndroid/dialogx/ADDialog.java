@@ -130,7 +130,7 @@ public class ADDialog {
 //        new Handler().postDelayed(new Runnable() {
 //            @Override
 //            public void run() {
-        animDialogUtils.show(animType, bounciness, speed);
+                animDialogUtils.show(animType, bounciness, speed);
 //            }
 //        }, 1000);
     }
@@ -162,7 +162,6 @@ public class ADDialog {
             int height = (int) (width / widthPerHeight);
             ViewGroup.LayoutParams params = adRootContent.getLayoutParams();
             params.height = height;
-
         } else {//横屏 不锁定宽高比
             int heightPixels = displayMetrics.heightPixels;
             ViewGroup.LayoutParams params = adRootContent.getLayoutParams();
