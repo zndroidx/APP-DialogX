@@ -2,9 +2,8 @@ package com.zndroid.dialogx.ad.view.material.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
-
-import androidx.appcompat.widget.AppCompatButton;
 
 import com.zndroid.dialogx.R;
 import com.zndroid.dialogx.ad.view.material.Iconify;

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DialogX</string>
+    <string name="dialogx_bottom_sheet_behavior">@string/bottom_sheet_behavior</string>
 </resources>

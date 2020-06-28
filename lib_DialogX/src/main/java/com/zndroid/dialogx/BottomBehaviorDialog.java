@@ -2,17 +2,18 @@ package com.zndroid.dialogx;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.support.annotation.NonNull;
+import android.support.annotation.LayoutRes;
+import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.BottomSheetDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.Display;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 
-import androidx.annotation.LayoutRes;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.zndroid.dialogx.interfaces.OnBottomSheetCallback;
 
 import java.lang.ref.WeakReference;
@@ -56,7 +57,6 @@ public class BottomBehaviorDialog {
 
         mContext = new WeakReference<Context>(context);
         bottomSheetDialog = new WeakReference<>(new BottomSheetDialog(context));
-        bottomSheetBehavior = bottomSheetDialog.get().getBehavior();
 
         WindowManager w = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         Display d = w.getDefaultDisplay();
@@ -71,29 +71,31 @@ public class BottomBehaviorDialog {
         build(context);
 
         bottomSheetDialog.get().setContentView(view);
+//        bottomSheetBehavior = BottomSheetBehavior.from(view);
 
         showDefault(context, bottomSheetDialog.get(), true, true);
     }
 
     public static void show(@NonNull AppCompatActivity context, View view, final OnBottomSheetCallback bottomSheetCallback) {
         show(context, view);
-        bottomSheetBehavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-            @Override
-            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                bottomSheetCallback.onStateChanged(bottomSheet, newState);
-            }
-
-            @Override
-            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-                bottomSheetCallback.onSlide(bottomSheet, slideOffset);
-            }
-        });
+//        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+//            @Override
+//            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+//                bottomSheetCallback.onStateChanged(bottomSheet, newState);
+//            }
+//
+//            @Override
+//            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+//                bottomSheetCallback.onSlide(bottomSheet, slideOffset);
+//            }
+//        });
     }
 
     public static void show(@NonNull AppCompatActivity context, @LayoutRes int id) {
         build(context);
 
         bottomSheetDialog.get().setContentView(id);
+//        bottomSheetBehavior = BottomSheetBehavior.from(context.getLayoutInflater().inflate(id, null));
 
         showDefault(context, bottomSheetDialog.get(), true, true);
     }
@@ -109,16 +111,19 @@ public class BottomBehaviorDialog {
 
     public BottomBehaviorDialog setContentView(View view) {
         bottomSheetDialog.get().setContentView(view);
+        bottomSheetBehavior = BottomSheetBehavior.from(view);
         return this;
     }
 
     public BottomBehaviorDialog setContentView(@LayoutRes int layoutResID) {
         bottomSheetDialog.get().setContentView(layoutResID);
+        bottomSheetBehavior = BottomSheetBehavior.from(LayoutInflater.from(mContext.get()).inflate(layoutResID, null));
         return this;
     }
 
     public BottomBehaviorDialog setPeekHeight(int peekHeight) {
-        bottomSheetBehavior.setPeekHeight(peekHeight);
+        if (null != bottomSheetBehavior)
+            bottomSheetBehavior.setPeekHeight(peekHeight);
         return this;
     }
 
@@ -131,48 +136,55 @@ public class BottomBehaviorDialog {
         else
             peekHeight = (int) (heightPixels * peek.getValue());
 
-        bottomSheetBehavior.setPeekHeight(peekHeight, true);
+        if (null != bottomSheetBehavior)
+            bottomSheetBehavior.setPeekHeight(peekHeight);
         return this;
     }
 
     public BottomBehaviorDialog addBottomSheetCallback(final OnBottomSheetCallback bottomSheetCallback) {
-        bottomSheetBehavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-            @Override
-            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                bottomSheetCallback.onStateChanged(bottomSheet, newState);
-            }
+        if (null != bottomSheetBehavior)
+            bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+                @Override
+                public void onStateChanged(@NonNull View bottomSheet, int newState) {
+                    bottomSheetCallback.onStateChanged(bottomSheet, newState);
+                }
 
-            @Override
-            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-                bottomSheetCallback.onSlide(bottomSheet, slideOffset);
-            }
-        });
+                @Override
+                public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+                    bottomSheetCallback.onSlide(bottomSheet, slideOffset);
+                }
+            });
 
         return this;
     }
 
     public BottomBehaviorDialog setCancelable(boolean cancelable) {
-        bottomSheetDialog.get().setCancelable(cancelable);
+        if (null != bottomSheetBehavior)
+            bottomSheetDialog.get().setCancelable(cancelable);
         return this;
     }
 
     public BottomBehaviorDialog setCanceledOnTouchOutside(boolean cancel) {
-        bottomSheetDialog.get().setCanceledOnTouchOutside(cancel);
+        if (null != bottomSheetBehavior)
+            bottomSheetDialog.get().setCanceledOnTouchOutside(cancel);
         return this;
     }
 
     public BottomBehaviorDialog setOnCancelListener(DialogInterface.OnCancelListener cancelListener) {
-        bottomSheetDialog.get().setOnCancelListener(cancelListener);
+        if (null != bottomSheetBehavior)
+            bottomSheetDialog.get().setOnCancelListener(cancelListener);
         return this;
     }
 
     public BottomBehaviorDialog setOnShowListener(DialogInterface.OnShowListener showListener) {
-        bottomSheetDialog.get().setOnShowListener(showListener);
+        if (null != bottomSheetBehavior)
+            bottomSheetDialog.get().setOnShowListener(showListener);
         return this;
     }
 
     public BottomBehaviorDialog setOnDismissListener(DialogInterface.OnDismissListener dismissListener) {
-        bottomSheetDialog.get().setOnDismissListener(dismissListener);
+        if (null != bottomSheetBehavior)
+            bottomSheetDialog.get().setOnDismissListener(dismissListener);
         return this;
     }
 
@@ -213,7 +225,9 @@ public class BottomBehaviorDialog {
                 state = BottomSheetBehavior.STATE_COLLAPSED;
                 break;
         }
-        bottomSheetBehavior.setState(state);
+
+        if (null != bottomSheetBehavior)
+            bottomSheetBehavior.setState(state);
         return this;
     }
 

@@ -2,11 +2,10 @@ package com.zndroid.dialogx.core;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.renderscript.Element;
+import android.renderscript.RenderScript;
+import android.renderscript.ScriptIntrinsicBlur;
 import android.util.Log;
-
-import androidx.renderscript.Element;
-import androidx.renderscript.RenderScript;
-import androidx.renderscript.ScriptIntrinsicBlur;
 
 import com.zndroid.dialogx.interfaces.DialogLifeCycleListener;
 import com.zndroid.dialogx.model.InputInfo;
@@ -101,7 +100,7 @@ public class DialogSettings {
         boolean isSupport = true;
         try {
             DialogSettings.class.getClassLoader().loadClass("android.graphics.drawable.RippleDrawable");
-            DialogSettings.class.getClassLoader().loadClass("androidx.renderscript.RenderScript");
+            DialogSettings.class.getClassLoader().loadClass("android.renderscript.RenderScript");
         } catch (ClassNotFoundException e) {
             isSupport = false;
             if (DEBUGMODE) {

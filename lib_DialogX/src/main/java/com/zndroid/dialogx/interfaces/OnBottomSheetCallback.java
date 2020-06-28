@@ -1,10 +1,9 @@
 package com.zndroid.dialogx.interfaces;
 
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomSheetBehavior;
 import android.view.View;
 
-import androidx.annotation.NonNull;
-
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 /**
  * Created by lzy on 2020/6/28.

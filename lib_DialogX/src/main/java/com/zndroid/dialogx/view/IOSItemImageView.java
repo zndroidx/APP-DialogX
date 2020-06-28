@@ -4,9 +4,8 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
-
-import androidx.appcompat.widget.AppCompatImageView;
 
 public class IOSItemImageView extends AppCompatImageView {
     

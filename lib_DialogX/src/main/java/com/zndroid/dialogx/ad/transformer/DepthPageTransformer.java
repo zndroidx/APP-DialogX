@@ -1,8 +1,8 @@
 package com.zndroid.dialogx.ad.transformer;
 
+import android.support.v4.view.ViewPager;
 import android.view.View;
 
-import androidx.viewpager.widget.ViewPager;
 
 import com.zndroid.dialogx.ad.util.ViewHelper;
 

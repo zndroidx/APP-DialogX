@@ -1,8 +1,11 @@
 package com.app.dialog;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +27,7 @@ import com.zndroid.dialogx.WaitDialog;
 import com.zndroid.dialogx.ad.ADConstant;
 import com.zndroid.dialogx.core.BaseDialog;
 import com.zndroid.dialogx.core.DialogSettings;
+import com.zndroid.dialogx.interfaces.OnBottomSheetCallback;
 import com.zndroid.dialogx.interfaces.OnDialogButtonClickListener;
 import com.zndroid.dialogx.interfaces.OnInputDialogButtonClickListener;
 import com.zndroid.dialogx.interfaces.OnMenuItemClickListener;
@@ -237,24 +241,22 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(myAdapter);
 
 
-//        BottomBehaviorDialog.show(this, view1, new OnBottomSheetCallback() {
-//            @Override
-//            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-//                Log.i("hyhy", "1232131");
-//            }
-//
-//            @Override
-//            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-//                Log.i("hyhy", "33333333");
-//
-//            }
-//        });
+        BottomBehaviorDialog.show(this, view1, new OnBottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+            }
 
-        BottomBehaviorDialog bottomBehaviorDialog = BottomBehaviorDialog.build(this)
-                .setContentView(view1)
-                .setPeekHeight(BottomBehaviorDialog.PEEK.QUARTERS);
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
 
-        bottomBehaviorDialog.show();
+            }
+        });
+
+//        BottomBehaviorDialog bottomBehaviorDialog = BottomBehaviorDialog.build(this)
+//                .setContentView(view1)
+//                .setPeekHeight(BottomBehaviorDialog.PEEK.QUARTERS);
+//
+//        bottomBehaviorDialog.show();
     }
 
     public void test(View view) {

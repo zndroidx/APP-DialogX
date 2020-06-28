@@ -1,6 +1,6 @@
 package com.zndroid.dialogx;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity;
 
 public class WaitDialog extends TipDialog {
     

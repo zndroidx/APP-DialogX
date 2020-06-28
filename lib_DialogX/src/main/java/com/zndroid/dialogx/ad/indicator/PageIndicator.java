@@ -1,6 +1,7 @@
 package com.zndroid.dialogx.ad.indicator;
 
-import androidx.viewpager.widget.ViewPager;
+
+import android.support.v4.view.ViewPager;
 
 public interface PageIndicator extends ViewPager.OnPageChangeListener {
     /** bind ViewPager */

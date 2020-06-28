@@ -3,16 +3,15 @@ package com.zndroid.dialogx;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
+import android.support.annotation.DrawableRes;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import androidx.annotation.DrawableRes;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import com.zndroid.dialogx.core.BaseDialog;
 import com.zndroid.dialogx.core.DialogSettings;
