@@ -239,4 +239,10 @@ public class BottomBehaviorDialog {
         }
     }
 
+    public void dismiss() {
+        if (null != bottomSheetDialog.get() && bottomSheetDialog.get().isShowing()) {
+            bottomSheetDialog.get().dismiss();
+        }
+    }
+
 }
