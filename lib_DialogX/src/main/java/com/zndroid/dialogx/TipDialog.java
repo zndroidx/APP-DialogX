@@ -107,7 +107,38 @@ public class TipDialog extends BaseDialog {
             }
         }
     }
-    
+
+    public static TipDialog showWait(AppCompatActivity context, String message, boolean cancelable) {
+        synchronized (TipDialog.class) {
+            TipDialog waitDialog = build(context);
+
+            waitDialogTemp.onDismissListener = new OnDismissListener() {
+                @Override
+                public void onDismiss() {
+                    if (waitDialogTemp != null && waitDialogTemp.dismissListener != null)
+                        waitDialogTemp.dismissListener.onDismiss();
+                    waitDialogTemp = null;
+                }
+            };
+
+            if (waitDialog == null) {
+                waitDialogTemp.setTip(null);
+                waitDialogTemp.setMessage(message);
+                waitDialogTemp.setCancelable(cancelable);
+                if (waitDialogTemp.cancelTimer != null) waitDialogTemp.cancelTimer.cancel();
+                return waitDialogTemp;
+            } else {
+                waitDialog.message = message;
+                waitDialog.type = null;
+                waitDialog.tipImage = null;
+                waitDialog.setCancelable(cancelable);
+                if (waitDialog.cancelTimer != null) waitDialog.cancelTimer.cancel();
+                waitDialog.showDialog();
+                return waitDialog;
+            }
+        }
+    }
+
     public static TipDialog showWait(AppCompatActivity context, int messageResId) {
         synchronized (TipDialog.class) {
             TipDialog waitDialog = build(context);
